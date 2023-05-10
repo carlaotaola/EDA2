@@ -27,8 +27,6 @@ struct User{
 
 
 
-
-
 struct User users[MAX_USERS];
 int num_users=0;
 int current_user_id = -1;
