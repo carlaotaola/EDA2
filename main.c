@@ -6,8 +6,8 @@
 
 #define MAX_USERS 100
 #define MAX_POSTS 100
-#define MAX_PREFERENCIAS 5
-#define MAX_LENGTH 256
+#define PREFERENCES_COUNT 5
+#define MAX_STRING_LEN 256
 
 struct Post {
     char content[140];
@@ -25,14 +25,34 @@ struct User{
     int num_posts;
 };
 
-
-
 struct User users[MAX_USERS];
 int num_users=0;
 int current_user_id = -1;
 
+typedef struct {
+    char username[MAX_STRING_LEN];
+    int born_year;
+    char email[MAX_STRING_LEN];
+    char current_location[MAX_STRING_LEN];
+    char preferences[PREFERENCES_COUNT][MAX_STRING_LEN];
+}User;
 
+typedef struct UserListNode{
+    User* user;
+    struct UsersListNode* next;
+    struct UsersListNode* prev;
+}UsersListNode;
 
+typedef struct{
+    UserListNode* first;
+    UserListNode* last;
+    size_t size;
+}UsersList;
+
+void init_users_list(UsersList* list);
+void add_user_to_list(UsersList* list, User* user);
+void show_all_users_in_list(UsersList* list);
+void clear_users_list(UsersList* list);
 
 void insert_user(){
     if (num_users>=MAX_USERS){
@@ -175,28 +195,76 @@ int main() {
     return 0;
 }
 
-typedef struct {
-    char NOMBRE_USUARIO[MAX_LENGTH];
-    int EDAD;
-    char CORREO_ELECTRONICO[MAX_LENGTH];
-    char UBICACION_ACTUAL_CIUDAD[MAX_LENGTH];
-    char PREFERENCIAS[MAX_LENGTH][MAX_PREFERENCIAS];
-} USUARIO;
 
-void init_USUARIO(USUARIO* USUARIO);
-const char* get_USAURIO_PREFERENCIA(const* u, int i);
-void set_USUARIO_PREFERENCIA(USUARIO* u, int i, const char* pref);
 
-void mostra_USUARIO_DATA_MENU(USUARIO* u);
+void init_user(User* user);
+const char* get_user_preference(const User* u, int idx);
+void set_user_preference(User* u, int idx, const char* pref);
 
-typedef struct UsuarioListNode{
-    USUARIO* USUARIO;
-    struct UsuarioListNode* next;
-    struct USUARIOListNode* prev;
-}UserListNode;
+void show_fill_user_data_menu(User* u);
 
-typedef struct{
-    UsuarioListNode* first;
-    UsuarioListNode* last;
-    size_t size;
-}UsuarioList;
+
+
+void init_users_list(UsersList* list){
+    list->first = NULL;
+    list->last = NULL;
+    list->size = 0;
+}
+
+void add_user_to_list(UsersList* list, User* user){
+    UserListNode* node = (UsersListNode*) malloc(sizeof(UsersListNode));
+    node->user = user;
+    node->next = NULL;
+    if (list->first == NULL){
+        list->first = node;
+        list->last = node;
+        node->prev = NULL;
+    }else{
+        list->last->next = node;
+        node->prev = list->last;
+        list->last = node;
+    }
+    list->size++;
+}
+
+void show_all_users_in_list(UsersList* list){
+    printf("Todos los usuarios: \n");
+    for (UserListNode* node = list->first; node!=NULL; node = node->next){
+        printf(" -%s\n", node->username);
+    }
+    printf("\n");
+}
+
+void clear_users_list(UsersList* list){
+    UsersListNode* node = list->first;
+    UserListNode* next;
+    while(node != NULL){
+        next = node->next;
+        free(node->user);
+        free(node);
+        node = next;
+    }
+    init_users_list(list);
+}
+
+void show_fill_users_data_menu(User* user){
+    int status = 0;
+    while(status != 1){
+        printf("Escribe un nombre de usuario:\n");
+        status = scanf("%s", user->username);
+    }
+    status = 0;
+    while(status != 1){
+        printf("Escribe tu año de nacimiento:\n");
+        status = scanf("%d", &user->born_year);
+    }
+    status = 0;
+    for(int i =0; i < PREFERENCES_COUNT, i++;){
+        status = 0;
+        while(status!=1){
+            printf("Escribe tus preferencias %d/%d:\n",(i+1), PREFERENCES_COUNT);
+            status = scanf("%s", user->preferences[i]);
+        }
+    }
+    printf("\n");
+}
