@@ -9,6 +9,7 @@
 #define PREFERENCES_COUNT 5
 #define MAX_STRING_LEN 256
 
+
 struct Post {
     char content[140];
 };
