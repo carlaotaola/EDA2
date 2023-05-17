@@ -1,4 +1,3 @@
-#include "user.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -27,8 +26,8 @@ struct User{
 };
 
 struct User users[MAX_USERS];
-int num_users=0;
-int current_user_id = -1;
+int num_users = 0;
+char current_user_name;
 
 typedef struct {
     char username[MAX_STRING_LEN];
@@ -40,13 +39,14 @@ typedef struct {
 
 typedef struct UserListNode{
     User* user;
+    char username[MAX_STRING_LEN];
     struct UsersListNode* next;
     struct UsersListNode* prev;
 }UsersListNode;
 
 typedef struct{
-    UserListNode* first;
-    UserListNode* last;
+    struct UserListNode* first;
+    struct UserListNode* last;
     size_t size;
 }UsersList;
 
@@ -94,109 +94,102 @@ void list_users(){
 
     }
 }
-void select_user() {
-    int user_id;
-    printf("\nIngrese el ID del usuario: ");
-    scanf("%d", &user_id);
+
+void specific_user() {
+    int user_name;
+    printf("\nIngrese el nombre del usuario: ");
+    scanf("%d", &user_name);
 
 
-    if (user_id < 0 || user_id >= num_users) {
-        printf("\nID de usuario no válido.\n");
+    if (user_name == NULL || user_name >= num_users) {
+        printf("\nNombre de usuario no válido.\n");
         return;
     }
 
-
-    current_user_id = user_id;
-    printf("\n¡Ha iniciado sesión como %s!\n", users[current_user_id].name);
+    current_user_name = user_name;
+    printf("\n¡Ha iniciado sesión como %s!\n", users[current_user_name].name);
 }
-void send_friend_request() {
-    if (current_user_id == -1) {
-        printf("\nDebe iniciar sesión como un usuario para usar esta opción.\n");
-        return;
-    }
-
-
-    int friend_id;
-    printf("\nIngrese el ID del amigo: ");
-    scanf("%d", &friend_id);
-
-
-    if (friend_id < 0 || friend_id >= num_users) {
-        printf("\nID de usuario no válido.\n");
-        return;
-    }
-    int i;
-    for (i = 0; i < users[current_user_id].num_friends; i++) {
-        if (users[current_user_id].friend_ids[i] == friend_id) {
-            printf("\nYa eres amigo de este usuario.\n");
+    void send_friend_request() {
+        if (current_user_name == -1) {
+            printf("\nDebe iniciar sesión como un usuario para usar esta opción.\n");
             return;
         }
-    }
 
+        int friend_name;
+        printf("\nIngrese el nombre del amigo: ");
+        scanf("%d", &friend_name);
 
-    users[current_user_id].pending_ids[users[current_user_id].num_pending] = friend_id;
-    users[current_user_id].num_pending++;
-
-
-    printf("\nSolicitud de amistad enviada con éxito.\n");
-}
-void manage_friend_requests() {
-    if (current_user_id == -1) {
-        printf("\nDebe seleccionar un usuario. \n");
-        return;
-    }
-
-
-    printf("\n Solicitudes pendientes: \n");
-    int i;
-    for (i = 0; i < users[current_user_id].num_pending; i++) {
-        if (users[current_user_id].pending_ids[i] == current_user_id) {
-            printf("\nYa has enviado una solicitud de amistad a este usuario.\n");
+        if (friend_name < 0 || friend_name >= num_users) {
+            printf("\nNombre de usuario no válido.\n");
             return;
         }
+        int i;
+        for (i = 0; i < users[current_user_name].num_friends; i++) {
+            if (users[current_user_name].friend_ids[i] == friend_name) {
+                printf("\nYa eres amigo de este usuario.\n");
+                return;
+            }
+        }
+
+        users[current_user_name].pending_ids[users[current_user_name].num_pending] = friend_name;
+        users[current_user_name].num_pending++;
+
+        printf("\nSolicitud de amistad enviada con éxito.\n");
     }
-}
+    void manage_friend_requests() {
+        if (current_user_name == -1) {
+            printf("\nDebe seleccionar un usuario. \n");
+            return;
+        }
 
-
-int read_option(void){
-    int value;
-    if(scanf("%d", &value)!=1){
-        return -1;
-        return value;
-    }
-}
-int main() {
-    int option = -1;
-    while (option != 4) {
-        printf("\nMenú:\n");
-        printf("1. Insertar un nuevo usuario.\n");
-        printf("2. Listar todos los usuarios existentes.\n");
-        printf("3. Salir.\n");
-
-
-        printf("\nSeleccione una opción: ");
-        scanf("%d", &option);
-
-
-        switch (option) {
-            case 1:
-                insert_user();
-                break;
-            case 2:
-                list_users();
-                break;
-            case 3:
-                printf("\n¡Hasta pronto!\n");
-                exit(0);
-            default:
-                printf("\nOpción no válida. Inténtalo de nuevo.\n");
-                break;
+        printf("\n Solicitudes pendientes: \n");
+        int i;
+        for (i = 0; i < users[current_user_name].num_pending; i++) {
+            if (users[current_user_name].pending_ids[i] == current_user_name) {
+                printf("\nYa has enviado una solicitud de amistad a este usuario.\n");
+                return;
+            }
         }
     }
-    return 0;
-}
+
+    void make_post() {
+        if (users[current_user_name].num_posts >= MAX_POSTS) {
+            printf("\nNo se pueden agregar más publicaciones.\n");
+            return;
+        }
+        struct Post post;
+        printf("\nIngrese el contenido de la publicación (máximo 140 caracteres): ");
+        scanf(" %[^\n]s", post.content);
 
 
+        users[current_user_name].posts[users[current_user_name].num_posts] = post;
+        users[current_user_name].num_posts++;
+
+
+        printf("\nPublicación realizada con éxito.\n");
+
+    }
+
+    void list_posts() {
+        if (users[current_user_name].num_posts == 0) {
+            printf("\nNo hay publicaciones para mostrar.\n");
+            return;
+        }
+
+
+        printf("\nLista de publicaciones:\n");
+        for (int i = 0; i < users[current_user_name].num_posts; i++) {
+            printf("%d. %s\n", i + 1, users[current_user_name].posts[i].content);
+        }
+    }
+
+//int read_option(void){
+    //int value;
+    //if(scanf("%d", &value)!=1){
+        //return -1;
+        //return value;
+    //}
+//}
 
 void init_user(User* user);
 const char* get_user_preference(const User* u, int idx);
@@ -213,7 +206,7 @@ void init_users_list(UsersList* list){
 }
 
 void add_user_to_list(UsersList* list, User* user){
-    UserListNode* node = (UsersListNode*) malloc(sizeof(UsersListNode));
+    struct UserListNode* node = (UsersListNode*) malloc(sizeof(UsersListNode));
     node->user = user;
     node->next = NULL;
     if (list->first == NULL){
@@ -230,7 +223,7 @@ void add_user_to_list(UsersList* list, User* user){
 
 void show_all_users_in_list(UsersList* list){
     printf("Todos los usuarios: \n");
-    for (UserListNode* node = list->first; node!=NULL; node = node->next){
+    for (struct UserListNode* node = list->first; node!=NULL; node = node->next){
         printf(" -%s\n", node->username);
     }
     printf("\n");
@@ -238,7 +231,7 @@ void show_all_users_in_list(UsersList* list){
 
 void clear_users_list(UsersList* list){
     UsersListNode* node = list->first;
-    UserListNode* next;
+    struct UserListNode* next;
     while(node != NULL){
         next = node->next;
         free(node->user);
@@ -268,4 +261,40 @@ void show_fill_users_data_menu(User* user){
         }
     }
     printf("\n");
+}
+
+
+int main() {
+    int option = -1;
+    while (option != 5) {
+        printf("\nMenú:\n");
+        printf("1. Insertar un nuevo usuario.\n");
+        printf("2. Listar todos los usuarios existentes.\n");
+        printf("3. Operar como un usuario específico.\n");
+        printf("4. Salir.\n");
+
+
+        printf("\nSeleccione una opción: ");
+        scanf("%d", &option);
+
+
+        switch (option) {
+            case 1:
+                insert_user();
+                break;
+            case 2:
+                list_users();
+                break;
+            case 3:
+                specific_user();
+                break;
+            case 4:
+                printf("\n¡Hasta pronto!\n");
+                exit(0);
+            default:
+                printf("\nOpción no válida. Inténtalo de nuevo.\n");
+                break;
+        }
+    }
+    return 0;
 }
