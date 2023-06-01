@@ -47,11 +47,9 @@ Ferran Mogas Ko
 ### INTRODUCCIÓN: (250 words max)
 Este apartado tendría que describir el contexto, la definición de los problemas, 
 las soluciones existentes que usted ha buscado para inspirarse, su propuesta y 
-sus objetivos conseguidos y la estructura del informe.
+sus objetivos conseguidos y la estructura del informe. **(Hacerlo al último)**
 
 ### OBJETIVOS DEL PROYECTO:(2500 words max)
-Esta sección tendría que alcanzar los objetivos que cumple el proyecto. 
-**Cada objetivo** presentado en las subsecciones siguientes tendría que cubrir los siguientes elementos:
 
 **Vista general**: Describe como se implementó. Más allá del que se los ha dado en el documento de orientación,
 indicáis las principales características de las estructuras de datos y los algoritmos implementados hacia este 
@@ -66,20 +64,62 @@ Qué se puede mejorar?
 
 **Ubicación**: Qué línea de código y de qué fichero pertenece esta implementación.
 
-#### Se han cumplido los objetivos obligatorios: 
-Esta subsección tendría que describir qué objetivos obligatorios fueron implementados por vuestro proyecto 
-siguiendo la estructura y los elementos presentados anteriormente.
+#### SE HAN CUMPLIDO LOS OBJETIVOS OBLIGATORIOS:
 
-#### Se han cumplido los objetivos deseables: 
-Esta subsección tendría que describir qué objetivos deseables fueron implementados por su proyecto siguiendo 
-la estructura y los elementos presentados anteriormente.
+##### Implementar como mínimo una Lista (List), una Pila (Stack) y una Cola (Queue) funcionales como parte de alguna de las funcionalidades del proyecto:
+VISTA GENERAL:
 
-#### Se han cumplido los objetivos de exploración: 
-Esta subsección tendría que describir qué objetivos exploratorios fueron implementados por vuestro proyecto 
-siguiendo la estructura y los elementos presentados anteriormente.
+TIEMPO:
+
+UBICACIÓN:
+
+##### Implementar funcionalmente uno de los algoritmos de búsqueda que se verán dentro del curso (LinearSearch o BinarySearch):
+VISTA GENERAL:
+
+TIEMPO:
+
+UBICACIÓN:
+
+##### Implementar funcionalmente uno de los algoritmos de ordenamiento que se verán a lo largo del curso (InsertionSort, BubbleSort, MergeSort o QuickSort):
+VISTA GENERAL:
+
+TIEMPO:
+
+UBICACIÓN:
+
+##### Implementar o bien un Diccionario (Dictionary) o bien una tabla Hash (HashTable) funcionales:
+VISTA GENERAL:
+
+TIEMPO:
+
+UBICACIÓN:
+
+#### SE HAN CUMPLIDO LOS OBJETIVOS DESEABLES: 
+
+##### Leer datos de una fuente externa como un archivo de texto o CSV (No implica guardado de datos):
+VISTA GENERAL:
+
+TIEMPO:
+
+UBICACIÓN:
+
+##### Red Social temática y con una capa de personalización a nivel conceptual:
+VISTA GENERAL:
+
+TIEMPO:
+
+UBICACIÓN:
+
+#### SE HAN CUMPLIDO LOS OBJETIVOS DE EXPLORACIÓN: 
+
+##### Implementar las funcionalidades de lectura y guardado de datos (Información de los usuarios y sus contactos, y demás que se quiera añadir) desde un archivo externo (.txt o csv):
+VISTA GENERAL:
+
+TIEMPO:
+
+UBICACIÓN:
 
 ### SOLUCIÓN:
-Esta sección tendría que profundizar en la solución desarrollada para este proyecto
 
 #### Arquitectura del sistema: (750 words max)
 Esta subsección tendría que incluir al menos un diagrama de la arquitectura del sistema y una descripción 
@@ -96,6 +136,6 @@ Esta subsección tendría que incluir una descripción del(s) conjunto(s) de dat
 
 ### REFERENCIAS:
 Esta sección tendría que incluir las referencias utilizadas en el informe. Estas referencias incluyen cualquier sitio web,
-material de lectura, publicaciones o libros utilizados para la inspiración.
+material de lectura, publicaciones o libros utilizados para la inspiración. **(Hacerlo al último)**
 
-### PARTES DEL CÓDIGO HECHAS CON AYUDA DE IA:
+### PARTES DEL CÓDIGO HECHAS CON AYUDA DE IA: **(Hacerlo al último)**
