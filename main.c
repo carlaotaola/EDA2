@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <string.h>
 
 #define MAX_USERS 100
 #define MAX_POSTS 100
@@ -66,18 +65,14 @@ void insert_user(){
     printf("Ingrese la edad del usuario: \n");
     scanf("%d", &user.age);
 
-
     user.num_friends = 0;
     user.num_pending = 0;
     user.num_posts = 0;
 
-
     users[num_users]=user;
     num_users++;
 
-
     printf("Usuario agregado con éxito \n");
-
 
 }
 
@@ -101,7 +96,7 @@ void specific_user() {
     scanf("%d", &user_name);
 
 
-    if (user_name == NULL || user_name >= num_users) {
+   if (user_name == NULL || user_name >= num_users) {
         printf("\nNombre de usuario no válido.\n");
         return;
     }
@@ -109,79 +104,82 @@ void specific_user() {
     current_user_name = user_name;
     printf("\n¡Ha iniciado sesión como %s!\n", users[current_user_name].name);
 }
-    void send_friend_request() {
-        if (current_user_name == -1) {
-            printf("\nDebe iniciar sesión como un usuario para usar esta opción.\n");
-            return;
-        }
 
-        int friend_name;
-        printf("\nIngrese el nombre del amigo: ");
-        scanf("%d", &friend_name);
 
-        if (friend_name < 0 || friend_name >= num_users) {
-            printf("\nNombre de usuario no válido.\n");
-            return;
-        }
-        int i;
-        for (i = 0; i < users[current_user_name].num_friends; i++) {
-            if (users[current_user_name].friend_ids[i] == friend_name) {
-                printf("\nYa eres amigo de este usuario.\n");
-                return;
-            }
-        }
-
-        users[current_user_name].pending_ids[users[current_user_name].num_pending] = friend_name;
-        users[current_user_name].num_pending++;
-
-        printf("\nSolicitud de amistad enviada con éxito.\n");
+void send_friend_request() {
+    if (current_user_name == -1) {
+        printf("\nDebe iniciar sesión como un usuario para usar esta opción.\n");
+        return;
     }
-    void manage_friend_requests() {
-        if (current_user_name == -1) {
-            printf("\nDebe seleccionar un usuario. \n");
-            return;
-        }
 
-        printf("\n Solicitudes pendientes: \n");
-        int i;
-        for (i = 0; i < users[current_user_name].num_pending; i++) {
-            if (users[current_user_name].pending_ids[i] == current_user_name) {
-                printf("\nYa has enviado una solicitud de amistad a este usuario.\n");
-                return;
-            }
+    int friend_name;
+    printf("\nIngrese el nombre del amigo: ");
+    scanf("%d", &friend_name);
+
+    if (friend_name < 0 || friend_name >= num_users) {
+        printf("\nNombre de usuario no válido.\n");
+        return;
+    }
+    int i;
+    for (i = 0; i < users[current_user_name].num_friends; i++) {
+        if (users[current_user_name].friend_ids[i] == friend_name) {
+               printf("\nYa eres amigo de este usuario.\n");
+               return;
         }
     }
 
-    void make_post() {
-        if (users[current_user_name].num_posts >= MAX_POSTS) {
-            printf("\nNo se pueden agregar más publicaciones.\n");
-            return;
-        }
-        struct Post post;
-        printf("\nIngrese el contenido de la publicación (máximo 140 caracteres): ");
-        scanf(" %[^\n]s", post.content);
+    users[current_user_name].pending_ids[users[current_user_name].num_pending] = friend_name;
+    users[current_user_name].num_pending++;
 
+    printf("\nSolicitud de amistad enviada con éxito.\n");
+}
 
-        users[current_user_name].posts[users[current_user_name].num_posts] = post;
-        users[current_user_name].num_posts++;
-
-
-        printf("\nPublicación realizada con éxito.\n");
-
+void manage_friend_requests() {
+    if (current_user_name == -1) {
+        printf("\nDebe seleccionar un usuario. \n");
+        return;
     }
 
-    void list_posts() {
-        if (users[current_user_name].num_posts == 0) {
-            printf("\nNo hay publicaciones para mostrar.\n");
+    printf("\n Solicitudes pendientes: \n");
+    int i;
+    for (i = 0; i < users[current_user_name].num_pending; i++) {
+        if (users[current_user_name].pending_ids[i] == current_user_name) {
+            printf("\nYa has enviado una solicitud de amistad a este usuario.\n");
             return;
         }
-
-
-        printf("\nLista de publicaciones:\n");
-        for (int i = 0; i < users[current_user_name].num_posts; i++) {
-            printf("%d. %s\n", i + 1, users[current_user_name].posts[i].content);
-        }
     }
+}
+
+void make_post() {
+    if (users[current_user_name].num_posts >= MAX_POSTS) {
+        printf("\nNo se pueden agregar más publicaciones.\n");
+        return;
+    }
+    struct Post post;
+    printf("\nIngrese el contenido de la publicación (máximo 140 caracteres): ");
+    scanf(" %[^\n]s", post.content);
+
+
+    users[current_user_name].posts[users[current_user_name].num_posts] = post;
+    users[current_user_name].num_posts++;
+
+
+    printf("\nPublicación realizada con éxito.\n");
+
+}
+
+void list_posts() {
+    if (users[current_user_name].num_posts == 0) {
+        printf("\nNo hay publicaciones para mostrar.\n");
+        return;
+    }
+
+
+    printf("\nLista de publicaciones:\n");
+    for (int i = 0; i < users[current_user_name].num_posts; i++) {
+        printf("%d. %s\n", i + 1, users[current_user_name].posts[i].content);
+    }
+}
 
 //int read_option(void){
     //int value;
@@ -263,7 +261,6 @@ void show_fill_users_data_menu(User* user){
     printf("\n");
 }
 
-
 int main() {
     int option = -1;
     while (option != 5) {
@@ -273,10 +270,8 @@ int main() {
         printf("3. Operar como un usuario específico.\n");
         printf("4. Salir.\n");
 
-
         printf("\nSeleccione una opción: ");
         scanf("%d", &option);
-
 
         switch (option) {
             case 1:
@@ -287,7 +282,38 @@ int main() {
                 break;
             case 3:
                 specific_user();
-                break;
+
+                int submenu_option = -1;
+                while (submenu_option != 5) {
+                    printf("\nSubmenú:\n");
+                    printf("1. Enviar solicitud de amistad.\n");
+                    printf("2. Administrar solicitudes de amistad.\n");
+                    printf("3. Realizar publicación.\n");
+                    printf("4. Volver al menú pricnipal.\n");
+
+                    printf("\nSeleccione una opción: ");
+                    scanf("%d", &submenu_option);
+
+                    switch (submenu_option) {
+                        case 1:
+                            send_friend_request();
+                            break;
+                        case 2:
+                            manage_friend_requests();
+                            break;
+                        case 3:
+                            make_post();
+                            break;
+                        case 4:
+                            printf("\nVolviendo al menú principal.\n");
+                            break;
+                        default:
+                            printf("\nOpción no válida. Inténtalo de nuevo.\n");
+                            break;
+                    }
+                    return 0;
+                }
+
             case 4:
                 printf("\n¡Hasta pronto!\n");
                 exit(0);
@@ -296,5 +322,5 @@ int main() {
                 break;
         }
     }
-    return 0;
+        return 0;
 }
