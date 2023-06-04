@@ -48,6 +48,17 @@ Ferran Mogas Ko
 Este apartado tendría que describir el contexto, la definición de los problemas, 
 las soluciones existentes que usted ha buscado para inspirarse, su propuesta y 
 sus objetivos conseguidos y la estructura del informe. **(Hacerlo al último)**
+---
+---
+Durante este proyecto hemos creado una red social para dar solucion a diferentes 
+situaciones y problemas en las que se puede encontrar la sociedad amenudo. Nuestra red 
+social esta enfocada para todas aquellas personas que viajen, y esten interesadores 
+a escuchar opinions, reseñas y recomendaciones de otras personas.
+Hemos creado esta red social para dar solución a los problemas y dudas de los viajeros.
+En esta, se pueden resolver todo tipo de conflictos, desde una orientación de los mejores
+sitios a visitar, hasta donde comer la mejor comida local de la zona que se visite...
+
+
 
 ### OBJETIVOS DEL PROYECTO:(2500 words max)
 
@@ -55,6 +66,15 @@ sus objetivos conseguidos y la estructura del informe. **(Hacerlo al último)**
 indicáis las principales características de las estructuras de datos y los algoritmos implementados hacia este 
 objetivo y su comportamiento. Esto tendría que incluir:
 Qué variables se han utilizado y con qué propósito?
+---
+---
+Hemos utiilizado diferentes variables para almacenar los datos de los usuarios 
+que vayan a usar la red social. Como por ejemplo "user.surname" para almacenar
+el apellido de cada miembro.
+Las 4 variables de los usuarios han sido "bron_year / email / current_location"
+---
+---
+
 Qué estructuras de datos se han elegido para este objetivo? Cuál es su uso esperado?
 Qué era el algoritmo elegido para este objetivo? Cuál es su comportamiento esperado? Y su actuación a Big O?
 Qué limitaciones tiene el algoritmo? Qué pasa con su aplicación?
