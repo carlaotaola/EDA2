@@ -67,6 +67,15 @@ Qué se puede mejorar? (*BORRAR ANTES DE ENTREGAR*)
 #### SE HAN CUMPLIDO LOS OBJETIVOS OBLIGATORIOS:
 
 ##### Implementar como mínimo una Lista (List), una Pila (Stack) y una Cola (Queue) funcionales como parte de alguna de las funcionalidades del proyecto:
+
+### LIST:
+**VISTA GENERAL:**
+
+**TIEMPO:** 50 min
+
+**UBICACIÓN:** Archivo: *'user.c'* líneas 115-165
+
+### STACK:
 **VISTA GENERAL:** 
 
 La funcionalidad *UsersStack* es una estructura que representa la pila de usuarios. Tiene un puntero llamado 'top' que apunta al nodo superior de la pila. 
@@ -83,14 +92,37 @@ Dentro de este objetivo pueden haber las siguientes limitaciones o posibles mejo
 
 **TIEMPO:** 180 min
 
-**UBICACIÓN:** Ficheros: *user_stack*
+**UBICACIÓN:** Ficheros: *'user_stack.c' y 'user_stack.h'*
 
-##### Implementar funcionalmente uno de los algoritmos de búsqueda que se verán dentro del curso (LinearSearch o BinarySearch):
+### QUEUE:
 **VISTA GENERAL:**
 
 **TIEMPO:**
 
 **UBICACIÓN:**
+
+##### Implementar funcionalmente uno de los algoritmos de búsqueda que se verán dentro del curso (LinearSearch o BinarySearch):
+**VISTA GENERAL:**
+
+'*list*': Es un puntero constante a una estructura de datos: '*UsersList*'.Representa la lista de usuarios en la cual se realizará la búsqueda.
+
+'*username*': Es un puntero constante a una cadena de caracteres ('char'). Representa el nombre del usuario que se busca en la lista.
+
+'*node*': Es un puntero a un nodo de la lista ('UsersListNode'). Se utiliza para iterar sobre los nodos de la lista durante la búsqueda.
+
+'*node->user->username*': Accede al nombre de usuario almacenado en el nodo actual de la lista.
+
+La estructura de datos utilizada es una lista enlazada ('UserList) que contiene nodos ('UsersListNode') que a su vez almacenan usuarios ('User').
+
+El algoritmo utilizado para buscar un usuario por nombre de usuario es un enfoque de búsqueda lineal. Itera sobre los nodos de la lista, comparando el nombre de usuario del nodo actual con el nombre de usuario buscado utilizando la función 'strcmp' para determinar si son iguales.
+
+La complejidad del algoritmo de búsqueda lineal es O(n), donde n es el número de nodos en la lista. Esto significa que el tiempo de ejecución del algoritmo aumenta de manera proporcional al tamaño de la lista.
+
+En este objetivo se encuentran las siguientes limitaciones o posibles mejoras: La búsqueda lineal puede ser ineficiente en grandes listas, ya que se debe iterar sobre todos los elementos hasta encontrar el usuario o llegar al final de la lista. El algoritmo tampoco maneja casos en los que el nombre de usuario buscado es nulo. Una mejora adicional podría ser implementar algún tipo de índice o estructura de datos auxiliar para acelerar las búsquedas por nombre de usuario.
+
+**TIEMPO:** 20 min
+
+**UBICACIÓN:** Fichero: *'user.c'* líneas: 172-179.
 
 ##### Implementar funcionalmente uno de los algoritmos de ordenamiento que se verán a lo largo del curso (InsertionSort, BubbleSort, MergeSort o QuickSort):
 **VISTA GENERAL:**
@@ -111,9 +143,9 @@ Dentro de este objetivo pueden haber las siguientes limitaciones o posibles mejo
 ##### Leer datos de una fuente externa como un archivo de texto o CSV (No implica guardado de datos):
 **VISTA GENERAL:**
 
-**TIEMPO:**
+**TIEMPO:** 180 min
 
-**UBICACIÓN:**
+**UBICACIÓN:** Fichero: *'user.c'* líneas: 183-241
 
 ##### Red Social temática y con una capa de personalización a nivel conceptual:
 **VISTA GENERAL:**
@@ -127,9 +159,9 @@ Dentro de este objetivo pueden haber las siguientes limitaciones o posibles mejo
 ##### Implementar las funcionalidades de lectura y guardado de datos (Información de los usuarios y sus contactos, y demás que se quiera añadir) desde un archivo externo (.txt o csv):
 **VISTA GENERAL:**
 
-**TIEMPO:**
+**TIEMPO:** 30 min
 
-**UBICACIÓN:**
+**UBICACIÓN:** Archivo: *'user.c'* líneas: 243-260
 
 ### SOLUCIÓN:
 
@@ -148,6 +180,6 @@ Esta subsección tendría que incluir una descripción del(s) conjunto(s) de dat
 
 ### REFERENCIAS:
 Esta sección tendría que incluir las referencias utilizadas en el informe. Estas referencias incluyen cualquier sitio web,
-material de lectura, publicaciones o libros utilizados para la inspiración. **(Hacerlo al último)**
+material de lectura, publicaciones o libros utilizados para la inspiración. **(Hacerlo al último, SOLO SI ES NECESARIO)**
 
-### PARTES DEL CÓDIGO HECHAS CON AYUDA DE IA: **(Hacerlo al último)**
+### PARTES DEL CÓDIGO HECHAS CON AYUDA DE IA: **(Hacerlo al último, SOLO SI ES NECESARIO)**
