@@ -275,6 +275,39 @@ Limitaciones o posibles mejoras: No se realizan validaciones exhaustivas del for
 Esta subsección tendría que incluir al menos un diagrama de la arquitectura del sistema y una descripción 
 de los bloques principales y su funcionalidad.
 
+La arquitectura de nuestro sistema se puede representar con el siguiente diagrama:
+                        +-------------------------+
+                        |                         |
+                        |         Servidor        |
+                        |                         |
+                        +-----------+-------------+
+                                    |
+                                    |
+                       +------------v------------+
+                       |                         |
+                       |     Base de Datos       |
+                       |                         |
+                       +------------+------------+
+                                    |
+                                    |
+                +------------------v------------------+
+                |                                    |
+                |          Cliente de la Red          |
+                |                                    |
+                +-------------------+----------------+
+                                    |
+                                    |
+                        +-----------v------------+
+                        |                         |
+                        |      Interfaz de       |
+                        |      Usuario (UI)      |
+                        |                         |
+                        +-------------------------+
+
+En el cual, encontramos diferentes bloques:
+ - Servidor: responsable de recibir y procesar las solicitudes de los clientes, gestionar la lógica empresarial y devolver las respuestas adecuadas. Gestiona la comunicación con los clientes a través de sockets y coordina las interacciones con las bases de datos. - Base de datos: este componente almacena y recupera datos relacionados con las redes sociales, como perfiles de usuarios, publicaciones, amistades, etc. Gestión eficiente de datos utilizando un sistema de gestión de base de datos (DBMS). - Clientes de Red: Aplicaciones que utilizan los usuarios para acceder a las redes sociales. Permite a los usuarios registrarse, iniciar sesión, encontrar amigos, publicar contenido y realizar otras actividades relacionadas con las redes sociales. Comuníquese con el servidor a través de la red.
+- Interfaz de Usuario (UI): Es la interfaz gráfica o textual con la que interactúan los usuarios para utilizar la red social. Ofrezca a los usuarios una forma intuitiva y fácil de usar para realizar acciones en las redes sociales, como ver publicaciones, comentar y enviar mensajes.
+- 
 #### Gestión de errores: 
 Esta subsección tendría que describir como se gestionaron los errores en el proyecto y el razonamiento que hay detrás.
 
