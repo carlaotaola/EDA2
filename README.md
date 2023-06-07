@@ -209,6 +209,32 @@ Limitaciones o posibles mejoras: El algoritmo asume que el formato del archivo C
 ##### Implementar las funcionalidades de lectura y guardado de datos (Información de los usuarios y sus contactos, y demás que se quiera añadir) desde un archivo externo (.txt o csv):
 **VISTA GENERAL:**
 
+'list': Es un puntero a una estructura de datos UsersList. Representa la lista de usuarios a la cual se agregarán los usuarios leídos desde el archivo CSV.
+
+'filename': Es un puntero a una cadena de caracteres que contiene el nombre del archivo CSV.
+
+'f': Es un puntero a FILE. Representa el archivo CSV que se abrirá para lectura
+
+El algoritmo utilizado tiene como objetivo llenar la lista de usuarios ('list') a partir de un archivo CSV. Sigue los siguientes pasos:
+
+1. Intenta abrir el archivo CSV en modo lectura utilizando la función 'fopen'.
+
+2. Si la apertura del archivo no tiene éxito, muestra un mensaje de error indicando que el archivo no se encontró y devuelve la función.
+
+3. Dentro de un bucle 'while', lee usuarios desde el archivo CSV utilizando la función 'read_user_from_csv_row'.
+
+4. Si se pudo leer un usuario válido desde el archivo (es decir, el puntero al usuario no es nulo), se agrega a la lista utilizando la función 'add_user_to_list'.
+
+5. El bucle continúa hasta que se alcanza el final del archivo ('feof' indica que no se pueden leer más datos).
+
+6. Una vez que se han leído todos los usuarios del archivo CSV, se cierra el archivo utilizando la función 'fclose'.
+
+El comportamiento esperado del algoritmo es llenar la lista de usuarios con los usuarios leídos desde el archivo CSV.
+
+La complejidad del algoritmo depende del número de usuarios en el archivo CSV y el tiempo de ejecución de las funciones 'read_user_from_csv_row' y 'add_user_to_list'. Si hay n usuarios en el archivo, la complejidad sería O(n).
+
+Limitaciones o posibles mejoras: No se realizan validaciones exhaustivas del formato y contenido del archivo CSV. Si el archivo no sigue el formato esperado, se pueden producir errores o comportamientos inesperados.
+
 **TIEMPO:** 30 min
 
 **UBICACIÓN:** Archivo: *'user.c'* líneas: 243-260
