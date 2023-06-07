@@ -4,10 +4,10 @@
 #include "common.h"
 
 #define MAX_STRING_LEN 256 //como de largo son los strings
-#define PREFERENCES_COUNT 5 //cada usuario tiene que tener 5 caracteristicas
+#define PREFERENCES_COUNT 5 //cada usuario tiene que tener 5 características 
 
 
-struct User; //Prototipo. Estamos diciendo que existe un tipo que se llama user que no se lo que tiene, però existe.
+struct User; //Prototipo. Estamos diciendo que existe un tipo que se llama user que no sabemos lo que tiene, però existe.
 
 typedef struct UsersListNode {
     struct User* user;
@@ -80,7 +80,7 @@ void add_user_to_list(UsersList* list, User* user); //añadir un usuario a la li
 
 void show_all_users_in_list(const UsersList* list); //mostrar la lista
 
-void clear_users_list(UsersList* list, bool destroy_users); //borrar todos los elementos de la list
+void clear_users_list(UsersList* list, bool destroy_users); //borrar todos los elementos de la lista
 
 size_t users_list_size(const UsersList* list);
 
