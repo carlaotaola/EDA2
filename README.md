@@ -48,7 +48,7 @@ Ferran Mogas Ko
 
 Esta red social tiene como objetivo conectar a viajeros de todo el mundo, permitiéndoles compartir experiencias, recomendar destinos, planificar itinerarios y establecer conexiones significativas con personas apasionadas por los viajes. La inspiración para desarrollar esta red social de viajes surge de la pasión por explorar el mundo y la creencia en el poder de los viajes para enriquecer nuestras vidas. El deseo de crear una comunidad global donde los viajeros puedan conectarse, compartir conocimientos y descubrir nuevas aventuras impulsa el desarrollo de esta plataforma. Se inspira también en la necesidad de superar las barreras geográficas y culturales, permitiendo a las personas explorar destinos desconocidos, obtener información relevante y conectarse con personas que comparten su amor por los viajes. Se busca crear un espacio virtual donde los viajeros puedan encontrar inspiración, recibir recomendaciones personalizadas y construir relaciones significativas con otros amantes de los viajes. Se promueve fomentar la diversidad cultural, promoviendo la comprensión mutua y el intercambio de experiencias entre personas de diferentes países, trasfondos y perspectivasHemos logrado conseguir los objetivos que se detallan a continuación. Muchos de ellos han costado mucho trabajo y esfuerzo en desarrollarlos, no obstante, siempre es mejorable. El informe sigue una estrcutura clara, basándose en el desarollos de los objetivos obligatorios, deseables y de exploración.
 
-### OBJETIVOS DEL PROYECTO:(2500 words max)
+### OBJETIVOS DEL PROYECTO:
 
 
 #### SE HAN CUMPLIDO LOS OBJETIVOS OBLIGATORIOS:
@@ -271,17 +271,17 @@ Limitaciones o posibles mejoras: No se realizan validaciones exhaustivas del for
 
 ### SOLUCIÓN:
 
-#### Arquitectura del sistema: (750 words max)
+#### Arquitectura del sistema: 
 Esta subsección tendría que incluir al menos un diagrama de la arquitectura del sistema y una descripción 
 de los bloques principales y su funcionalidad.
 
-#### Gestión de errores: (250 words max)
+#### Gestión de errores: 
 Esta subsección tendría que describir como se gestionaron los errores en el proyecto y el razonamiento que hay detrás.
 
-#### Diseño del modelo de datos: (250 words max)
+#### Diseño del modelo de datos: 
 Esta subsección tendría que incluir al menos un diagrama de flujo de datos de la solución y su descripción.
 
-#### Descripción y procesamiento del conjunto de datos: (250 words max)
+#### Descripción y procesamiento del conjunto de datos: 
 Esta subsección tendría que incluir una descripción del(s) conjunto(s) de datos utilizados, como se leyeron y procesar.
 
 ### REFERENCIAS:
