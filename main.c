@@ -14,7 +14,7 @@ void show_main_menu(UsersList* users);
 int read_option(void)
 {
     int value;
-    if (scanf("%d", &value) != 1) //scanf retorna un numero, este numero es igual al numero de porcentajes
+    if (scanf("%d", &value) != 1) //scanf devuelve un número, este número es igual al número de porcentajes
                                  //que ha podido escanear correctamente, si escanea devuelve un 1.
         return -1;
 
@@ -176,9 +176,9 @@ void create_new_user(UsersList* users)
     add_user_to_list(users, user);
 }
 
-void show_main_menu(UsersList* users) //controla menú principal (nos dará las 4 opciones)
+void show_main_menu(UsersList* users) //controla el menú principal (nos dará las 4 opciones)
 {
-    int option = -1; //opcion escogida por el usuario
+    int option = -1; //opción escogida por el usuario
     while (option != 4)
     {
         printf("Main menu:\n");
