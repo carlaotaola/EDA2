@@ -44,10 +44,9 @@ Ferran Mogas Ko
 
 5. Partes del código hechas con ayuda de IA
 
-### INTRODUCCIÓN: (250 words max)
-Este apartado tendría que describir el contexto, la definición de los problemas, 
-las soluciones existentes que usted ha buscado para inspirarse, su propuesta y 
-sus objetivos conseguidos y la estructura del informe. **(Hacerlo al último)**
+### INTRODUCCIÓN: 
+
+Esta red social tiene como objetivo conectar a viajeros de todo el mundo, permitiéndoles compartir experiencias, recomendar destinos, planificar itinerarios y establecer conexiones significativas con personas apasionadas por los viajes. La inspiración para desarrollar esta red social de viajes surge de la pasión por explorar el mundo y la creencia en el poder de los viajes para enriquecer nuestras vidas. El deseo de crear una comunidad global donde los viajeros puedan conectarse, compartir conocimientos y descubrir nuevas aventuras impulsa el desarrollo de esta plataforma. Se inspira también en la necesidad de superar las barreras geográficas y culturales, permitiendo a las personas explorar destinos desconocidos, obtener información relevante y conectarse con personas que comparten su amor por los viajes. Se busca crear un espacio virtual donde los viajeros puedan encontrar inspiración, recibir recomendaciones personalizadas y construir relaciones significativas con otros amantes de los viajes. Se promueve fomentar la diversidad cultural, promoviendo la comprensión mutua y el intercambio de experiencias entre personas de diferentes países, trasfondos y perspectivasHemos logrado conseguir los objetivos que se detallan a continuación. Muchos de ellos han costado mucho trabajo y esfuerzo en desarrollarlos, no obstante, siempre es mejorable. El informe sigue una estrcutura clara, basándose en el desarollos de los objetivos obligatorios, deseables y de exploración.
 
 ### OBJETIVOS DEL PROYECTO:(2500 words max)
 
