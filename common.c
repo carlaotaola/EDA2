@@ -5,9 +5,9 @@
 
 int random_int(int max)
 {
-    //Las variables static actuan como si fueran variables globales, pero solo son visibles en la funcion en la que se definen.
-    //Solo se inicializan una vez, despues la instruccion que les da valor en su inicializacion se ignora. Mantienen su valor
-    // antiguo cada vez que se entra a la funcion.
+    //Las variables static actuan como si fueran variables globales, pero solo son visibles en la función en la que se definen.
+    //Solo se inicializan una vez, después la instrucción que les da valor en su inicialización se ignora. Mantienen su valor
+    // antiguo cada vez que se entra a la función.
     static bool first_time = true;
     if (first_time)
     {
@@ -18,14 +18,14 @@ int random_int(int max)
     return rand() % max;
 }
 
-char read_csv_token(FILE* f, char* buffer) //Lee un token (una palabra) hasta que llege a un separador y te retorna uno de los dos
+char read_csv_token(FILE* f, char* buffer) //Lee un token (una palabra) hasta que llegue a un separador y te devuelve uno de los dos
 {
-    int count = 0; //Para saber el numero de caracteres que hemos leido (hasta llegar a parar)
+    int count = 0; //Para saber el número de caracteres que hemos leído  (hasta llegar a parar)
     int ch; //Guardaremos el resultado de la condición fgetsc
     while ((ch = fgetc(f)) != EOF) //EOF = -1 //Estamos leyendo caracteres de uno en uno, y cada caracter se guarda en ch
     {
         if (ch == CSV_SEPARATOR || ch == CSV_ENDLINE) //Leemos caracter a caracter. Cada vez que leo un caracter miro si
-            // es una coma o un salto de linea, si es eso para de contar y retorna el caracter que me ha hecho parar.
+            // es una coma o un salto de linea, si es eso para de contar y devuelve el caracter que me ha hecho parar.
         {
             buffer[count] = '\0'; //'\0' final de un string
             return ch;
@@ -35,18 +35,18 @@ char read_csv_token(FILE* f, char* buffer) //Lee un token (una palabra) hasta qu
             count++; //count=tamaño de la palabra, siempre empieza en 0.
         }
     }
-    buffer[count] = ch; //si hemos llegado al final del archivo, lo interpretaremos como un final de linea.
+    buffer[count] = ch; //si hemos llegado al final del archivo, lo interpretaremos como un final de línea.
     return CSV_ENDLINE;
 }
-//atoi: función que pide un string y devuelve un entero. si no es un numero devuelve un 0
-//que pasa si lo que tenemos que leer es un numero:
+//atoi: función que pide un string y devuelve un entero. si no es un número devuelve un 0
+//que pasa si lo que tenemos que leer es un número:
 char read_csv_number(FILE* f, int* number)
 {
     char buffer[50];
     char stop = read_csv_token(f, buffer);
     *number = atoi(buffer);
 
-    //La funcion atoi retorna 0 en caso de error//
+    //La función atoi devuelve 0 en caso de error//
     if (*number == 0)
         printf("[CSV number parser error]: Cannot concert '%s' to int.\n", buffer);
 
