@@ -51,18 +51,6 @@ sus objetivos conseguidos y la estructura del informe. **(Hacerlo al último)**
 
 ### OBJETIVOS DEL PROYECTO:(2500 words max)
 
-**Vista general**: Describe como se implementó. Más allá del que se los ha dado en el documento de orientación,
-indicáis las principales características de las estructuras de datos y los algoritmos implementados hacia este 
-objetivo y su comportamiento. Esto tendría que incluir:
-Qué variables se han utilizado y con qué propósito?
-Qué estructuras de datos se han elegido para este objetivo? Cuál es su uso esperado?
-Qué era el algoritmo elegido para este objetivo? Cuál es su comportamiento esperado? Y su actuación a Big O?
-Qué limitaciones tiene el algoritmo? Qué pasa con su aplicación?
-Qué se puede mejorar? (*BORRAR ANTES DE ENTREGAR*)
-
-**Tiempo**: tiempo necesario para desarrollar este objetivo (*BORRAR ANTES DE ENTREGAR*)
-
-**Ubicación**: Qué línea de código y de qué fichero pertenece esta implementación. (*BORRAR ANTES DE ENTREGAR*)
 
 #### SE HAN CUMPLIDO LOS OBJETIVOS OBLIGATORIOS:
 
@@ -205,6 +193,49 @@ Limitaciones o posibles mejoras: El algoritmo asume que el formato del archivo C
 **UBICACIÓN:**
 
 #### SE HAN CUMPLIDO LOS OBJETIVOS DE EXPLORACIÓN: 
+
+##### Implementar funcionalidad show several random users, dentro de la funcionalidad de operar como un usuario específico:
+**VISTA GENERAL:**
+
+'users': Es un puntero a una estructura de datos 'UsersList'. Representa la lista de usuarios disponibles para enviar solicitudes de amistad.
+
+'main_user': Es un puntero a una estructura de datos 'User'. Representa el usuario principal que enviará las solicitudes de amistad.
+
+'stack': Es una estructura de datos de pila 'UsersStack'. Se utiliza para almacenar temporalmente usuarios seleccionados al azar de la lista de usuarios.
+
+El algoritmo utilizado tiene como objetivo mostrar una serie de usuarios de la lista para que el usuario principal pueda enviarles solicitudes de amistad. Sigue los siguientes pasos:
+
+1. Se inicializa una pila de usuarios (stack) utilizando la función init_users_stack.
+
+2. Se llena la pila de usuarios con 3 usuarios seleccionados al azar de la lista de usuarios utilizando la función fill_stack_with_n_random_users_from_list.
+
+3. Se muestra un mensaje introductorio al usuario principal.
+
+4. Se inicia un bucle mientras la pila de usuarios no esté vacía.
+
+5. Se extrae un usuario de la pila utilizando la función pop_users_stack.
+
+6. Si el usuario extraído no es nulo, se muestra un menú al usuario principal para decidir si enviarle una solicitud de amistad.
+
+7. El usuario principal puede seleccionar entre las opciones 1, 2 o 3: enviar solicitud, no enviar solicitud o cancelar.
+
+8. Dependiendo de la opción seleccionada, se ejecutan diferentes acciones. Si se selecciona la opción 1, se agrega la solicitud de amistad utilizando la función add_user_friend_request. Si se selecciona la opción 3, se limpia la pila de usuarios utilizando la función clear_users_stack.
+
+9. Si el usuario principal no ha seleccionado una opción válida, se muestra un mensaje de opción inválida.
+
+10. El bucle continúa hasta que la pila de usuarios esté vacía.
+
+11. Se muestra un mensaje de finalización.
+
+El comportamiento esperado del algoritmo es mostrar al usuario principal una serie de usuarios y permitirle enviar solicitudes de amistad a los usuarios seleccionados.
+
+La complejidad del algoritmo depende del número de usuarios en la lista y el número de usuarios seleccionados al azar (en este caso, 3). Si hay n usuarios en la lista, la complejidad sería O(n).
+
+Limitaciones o posibles mejoras: No se realiza una validación exhaustiva de las entradas del usuario principal. Sería recomendable agregar comprobaciones adicionales para garantizar que se introduzcan valores válidos y manejar errores de entrada incorrecta.
+
+**TIEMPO:** 30 min
+
+**UBICACIÓN:** Fichero: *'main.c'* líneas: 41-84
 
 ##### Implementar las funcionalidades de lectura y guardado de datos (Información de los usuarios y sus contactos, y demás que se quiera añadir) desde un archivo externo (.txt o csv):
 **VISTA GENERAL:**
