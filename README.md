@@ -71,6 +71,28 @@ Qué se puede mejorar? (*BORRAR ANTES DE ENTREGAR*)
 ### LIST:
 **VISTA GENERAL:**
 
+'list': Es un puntero a una estructura de datos 'UsersList'. Representa la lista de usuarios y se utiliza como parámetro en las funciones.
+
+'user': Es un puntero a una estrutura de datos 'User'. Representa un usuario que se agrega a la lista.
+
+'node': Es un puntero a una estructura de datos 'UsersListNode'. Representa un nodo en la lista y se utiliza para agregar usuarios a la lista.
+
+La estructura de datos utilizada es una lista doblemente enlazada ('UserList'). Cada nodo ('UserListNode') contiene un puntero al usuario y punteros al siguiente nodo ('next') y al nodo anterior ('prev').
+
+El comportamineto esperado de las funciones es el siguiente:
+
+'init_users_list': Iniciliza los valores de la lista. Establece los punteros 'first' y 'last' en nulo, el tamaño en cero y el indicador de lista ordenada como falso.
+
+'add_user_to_list': Agrega un usuario a la lista. Crea un nuevo nodo, ajusta los punteros según si la lista está vacía o no, actualiza el tamaño y el indicador de lista ordenada.
+
+'show_all_users_in_list': Muesttra todos los usuarios de la lista por su nombre de usuario.
+
+'clear_users_list': Elimina todos los nodos de la lista.Si 'destroy_users' es verdadero, también detsruye los usuarios llamando a 'destroy_user'. Luego, llama a 'init_users_list' para restablecer la lista a su estado inicial.
+
+La complejidad de estas operaciones depende del tamaño de la lista. Las operaciones dee agregar un usuario a la lista ('add_user_to_list') y mostrar todos los usuarios en la lista ('show_all_users_in_list') tienen una complejidad de O(1) en promedio, ya que se realizan en tiempo constante independientemente del tamaño de la lista. En cambio, la operacion de eliminar todos los usuarios de la lista ('clear_users_list') tiene una complejidad de O(n), donde n es el número de nodos en la lista. Esto se debe a que debe iterar sobre tods los nodos de la lista para liberar la memoria y restablecer la lista.
+
+Limitaciones o posibles mejoras: Sería útil añadir verificaciones de puntero nulo y manejo de errores para evitar comportamientos inesperados.
+
 **TIEMPO:** 50 min
 
 **UBICACIÓN:** Archivo: *'user.c'* líneas 115-165
@@ -78,11 +100,11 @@ Qué se puede mejorar? (*BORRAR ANTES DE ENTREGAR*)
 ### STACK:
 **VISTA GENERAL:** 
 
-La funcionalidad *UsersStack* es una estructura que representa la pila de usuarios. Tiene un puntero llamado 'top' que apunta al nodo superior de la pila. 
+La funcionalidad 'UsersStack' es una estructura que representa la pila de usuarios. Tiene un puntero llamado 'top' que apunta al nodo superior de la pila. 
 
 *UsersStackNode* es una estructura que representa un nodo en la pila. Contiene un punturo al usuario y un puntero al siguiente nodo en la pila.
 
-*User* Es una estructura que representa a un usuario. Los detalles de esta estructura se encuentran en archivo: *user*
+*User* Es una estructura que representa a un usuario. Los detalles de esta estructura se encuentran en archivo: 'user'
 
 El propósito de este código es proporcionar operaciones básicas de una pila para gestionar usuarios. Dichas operaciones son: Inicializar la pila de usuarios, estableciendo el puntero 'top' en NULL (*init_users_stack*). Verificar si la pila está vacía (*users_stack_empty*) Agregar un usuario a la parte superior de la pila, crear un nuevo nodo, asignando el usuario al nodo y ajustando los punteros para que el nuevo nodo se convierta en el nodo superior de la pila (*pop_users_stack*). Delvolver el usuario en la parte superior de la pila sin eliminarlo (*get_users_stack_top*). Vaciar la pila de usuarios liberando todos los nodos (*clear_users_stack*), luego llama a la función *init_users_stack* para restablecer la pila a su estado inicial. Por último, *fill_stack_with_n_random_users_from_list* llena la pila con 'n' usuarios selecionados aleatoriamente de una lista de usuarios '*UserList*'. Utiliza la función '*random_int*' para generar un índice aleatorio y busca el nodo correspondiente en la lista para agregarlo a la pila.
 
