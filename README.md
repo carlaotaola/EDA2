@@ -165,6 +165,34 @@ En este objetivo se encuentran las siguientes limitaciones o posibles mejoras: L
 ##### Leer datos de una fuente externa como un archivo de texto o CSV (No implica guardado de datos):
 **VISTA GENERAL:**
 
+'f': Es un puntero 'FILE'. Representa el archivo CSV del cual se leerán los datos del usuario.
+
+'user': Es un puntero a una estructura de datos 'User'. Representa el usuario que se está leyendo desde el archivo CSV.
+
+'stop': Es una variable del tipo 'char'. Representa el carácter de parada que indica el final de un campo en el archivo CSV.
+
+La estructura de datos utilizada es una estructura 'User', que contiene los campos 'username', 'born_year', 'email', 'current_location' y 'preferences'. Cada campo es un arreglo de caracteres ('char') que almacena la información correspondiente al usuario.
+
+El algoritmo utilizado tiene como objetivo leer un usuario desde una fila en un archivo CSV. Sigue los siguientes pasos:
+
+1. Crea un nuevo usuario utilizando la función 'create_user()', que devuelve un puntero a una estructura 'User' vacía. 
+ 
+2. Lee el campo 'username' desde el archivo CSV utilizando la función 'read_csv_token(f, user->username)'. El carácter de parada ('stop') indica si se ha leído correctamente el campo. 
+
+3. Si el campo no termina con el separador CSV esperado, se destruye el usuario creado anteriormente, se muestra un mensaje de error y se retorna un puntero nulo.
+
+4. Los pasos 2 y 3 se repiten para los campos 'born_year', 'email', 'current_location' y 'preferences'. Se verifica que cada campo termine con el separador CSV esperado.
+
+5. Finalmente, se verifica que la fila CSV termine con el carácter de fin de línea ('CSV_ENDLINE'). Si no es así, se destruye el usuario, se muestra un mensaje de error y se retorna un puntero nulo.
+
+6. Si todo el proceso se realiza sin problemas, se retorna el puntero al usuario creado y leído correctamente desde el archivo CSV.
+
+El comportamiento esperado del algoritmo es leer los campos del usuario desde la fila CSV y crear una estructura de usuario válida con la información correspondiente.
+
+La complejidad del algoritmo depende del tamaño de la fila CSV y el número de campos que se deben leer. Cada llamada a las funciones 'read_csv_token' y 'read_csv_number' tiene una complejidad de O(m), donde m es la longitud del campo a leer.
+
+Limitaciones o posibles mejoras: El algoritmo asume que el formato del archivo CSV es correcto y sigue una estructura predefinida. No se realizan validaciones exhaustivas para todos los posibles errores de formato. No se maneja el caso en el que no se pueda crear el usuario correctamente debido a problemas de memoria.
+
 **TIEMPO:** 180 min
 
 **UBICACIÓN:** Fichero: *'user.c'* líneas: 183-241
